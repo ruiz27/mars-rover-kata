@@ -2,7 +2,7 @@ package katas;
 
 public class MarsRover {
 
-    public boolean move(Integer[] startingPoint, Direction direction) {
-        return true;
+    public Integer[] move(Integer[] startingPoint, Direction direction, String[] commands) {
+        return new Integer[]{0,0,0,0};
     }
 }

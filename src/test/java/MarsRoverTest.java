@@ -1,11 +1,11 @@
 import katas.Direction;
 import katas.MarsRover;
-import org.assertj.core.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 
 class MarsRoverTest {
 
@@ -17,15 +17,16 @@ class MarsRoverTest {
     }
 
     @Test
-    void givenStartPointAndDirectionWhenTranslateThenReturnTrue(){
+    void givenStartPointAndDirectionWhenMoveThenReturnSamePosition(){
         MarsRover marsRover = this.marsRover;
 
         Integer[] startingPoint = new Integer[]{0,0};
         Direction direction = new Direction(0,0,0,0);
+        String[] commands = new String[]{""};
 
-        boolean isMove = marsRover.move(startingPoint, direction);
+        Integer[] finalPosition = marsRover.move(startingPoint, direction, commands);
 
-        assertThat(isMove).isTrue();
+        assertThat(finalPosition).isEqualTo(new Integer[]{0,0,0,0});
     }
 
 
