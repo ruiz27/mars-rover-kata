@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MarsRover {
 
-    private Integer[] startingPoint;
-    private Integer[] direction;
+    private final Integer[] startingPoint;
+    private final Integer[] direction;
 
     public MarsRover(Integer[] startingPoint, Integer[] direction) {
         this.startingPoint = startingPoint;

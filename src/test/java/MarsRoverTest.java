@@ -1,4 +1,3 @@
-import katas.Direction;
 import katas.MarsRover;
 
 import org.junit.jupiter.api.BeforeEach;
