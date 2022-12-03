@@ -8,69 +8,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MarsRoverTest {
 
-    private MarsRover marsRover;
-
     @BeforeEach
     void setUp() {
 
     }
 
     @Test
-    void givenStartPointAndDirectionWhenMoveThenReturnSamePosition() {
+    void test_movesForward(){
         //given
-        Integer[] startingPoint = new Integer[]{0, 0};
-        Integer[] direction = new Integer[]{0,0,0,0};
-        marsRover = new MarsRover(startingPoint, direction);
-        String[] commands = new String[]{""};
+        String position = "0,0,N";
+        String commands = "f";
 
         //when
-        Integer[] finalPosition = marsRover.move(commands);
+        MarsRover marsRover = new MarsRover();
+        String finalPosition = marsRover.moves(position, commands);
 
         //then
-        assertThat(finalPosition).isEqualTo(direction);
+        assertThat(finalPosition).isEqualTo("0,1,N");
     }
     @Test
-    void givenStartPointAndCommandForwardWhenMoveThenReturnMovedPosition() {
-        // given
-        Integer[] startingPoint = new Integer[]{0, 0};
-        Integer[] direction = new Integer[]{1,0,0,0};
-        marsRover = new MarsRover(startingPoint, direction);
-        String[] commands = new String[]{"f"};
+    void test_movesBackward(){
+        //given
+        String position = "0,0,N";
+        String commands = "b";
 
         //when
-        Integer[] finalPosition = marsRover.move(commands);
+        MarsRover marsRover = new MarsRover();
+        String finalPosition = marsRover.moves(position, commands);
 
         //then
-        assertThat(finalPosition).isEqualTo(direction);
+        assertThat(finalPosition).isEqualTo("0,-1,N");
     }
-    @Test
-    void givenStartPointAndCommandLeftWhenMoveThenReturnMovedPosition() {
-        // given
-        Integer[] startingPoint = new Integer[]{0, 0};
-        Integer[] direction = new Integer[]{0,0,-1,0};
-        marsRover = new MarsRover(startingPoint, direction);
-        String[] commands = new String[]{"l"};
 
-        //when
-        Integer[] finalPosition = marsRover.move(commands);
-
-        //then
-        assertThat(finalPosition).isEqualTo(direction);
-    }
-    @Test
-    void givenStartPointAndCommandRightWhenMoveThenReturnMovedPosition() {
-        // given
-        Integer[] startingPoint = new Integer[]{0, 0};
-        Integer[] direction = new Integer[]{0,0,0,1};
-        marsRover = new MarsRover(startingPoint, direction);
-        String[] commands = new String[]{"r"};
-
-        //when
-        Integer[] finalPosition = marsRover.move(commands);
-
-        //then
-        assertThat(finalPosition).isEqualTo(direction);
-    }
 
 
 

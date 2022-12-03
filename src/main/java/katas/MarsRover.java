@@ -1,35 +1,24 @@
 package katas;
 
-import java.util.Arrays;
+
 
 public class MarsRover {
 
-    private final Integer[] startingPoint;
-    private final Integer[] direction;
 
-    public MarsRover(Integer[] startingPoint, Integer[] direction) {
-        this.startingPoint = startingPoint;
-        this.direction = direction;
-    }
+    public String moves(String position, String commands) {
+        char[] listCommands = commands.toCharArray();
 
-    public Integer[] move(String[] commands) {
-
-        Integer[] finalPosition = {startingPoint[0],startingPoint[1],0,0};
-        Arrays.stream(commands).forEach(u->{
-            if(u.equals("f")){
-                finalPosition[0] = finalPosition[0] + 1;
+        int x = Integer.parseInt(position.split(",")[0]);
+        int y = Integer.parseInt(position.split(",")[1]);
+        String dir = position.split(",")[2];
+        for (int i = 0; i < listCommands.length; i++) {
+            if(listCommands[i]=='f'){
+                y = y + 1;
             }
-            if(u.equals("b")){
-                finalPosition[1] = finalPosition[1] - 1;
+            if(listCommands[i]=='b'){
+                y = y - 1;
             }
-            if(u.equals("l")){
-                finalPosition[2] = finalPosition[2] - 1;
-            }
-            if(u.equals("r")){
-                finalPosition[3] = finalPosition[3] + 1;
-            }
-        });
-
-        return finalPosition;
+        }
+        return x+","+y+","+dir;
     }
 }

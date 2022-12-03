@@ -23,6 +23,9 @@ Link: https://kata-log.rocks/mars-rover-kata
 ## Assumptions
 
 - The planet is plane
+- use command and state patterns
+  https://refactoring.guru/design-patterns/state
+  https://refactoring.guru/design-patterns/command
 
 ![img_1.png](img_1.png)
 
