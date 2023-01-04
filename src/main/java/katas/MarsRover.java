@@ -13,21 +13,29 @@ public class MarsRover {
         String dir = position.split(",")[2];
         Point point = new Point(x,y);
         for (char listCommand : listCommands) {
-            if (listCommand == 'f') {
-                point = this.moveForward(dir, x, y);
-            }
-            if (listCommand == 'b') {
-                point = this.moveBackward(dir, x, y);
-            }
-            if (listCommand == 'l') {
-                dir = "W";
-            }
-            if (listCommand == 'r') {
-                dir = "E";
+            switch (listCommand) {
+                case 'f':
+                    point = this.moveForward(dir, x, y);
+                    break;
+                case 'b':
+                    point = this.moveBackward(dir, x, y);
+                    break;
+                case 'l':
+                    dir = moveLeft(dir);
+                    break;
+                case 'r':
+                    dir = moveRight("E");
+                    break;
             }
         }
 
         return point.getX()+","+ point.getY()+","+dir;
+    }
+
+    private String moveRight(String e) {
+        String dir;
+        dir = e;
+        return dir;
     }
 
     private Point moveForward(String dir, int x, int y){
@@ -59,6 +67,22 @@ public class MarsRover {
             x = x + 1;
         }
         return new Point(x,y);
+    }
+    private String moveLeft(String dir){
+        if(dir.equals("N")){
+            return "W";
+        }
+        if(dir.equals("W")){
+            return "S";
+        }
+        if(dir.equals("S")){
+            return "E";
+        }
+        if(dir.equals("E")){
+            return "N";
+        }
+
+        return "";
     }
 
 }
