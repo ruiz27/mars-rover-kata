@@ -91,6 +91,20 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,0,S");
     }
+    @Test
+    void givenInitializeMapWhenMoveLeftThenResultEastDirection(){
+        //given
+        String position = "0,0,N";
+        String commands = "ll";
+
+        //when
+        MarsRover marsRover = new MarsRover("55");
+        String finalPosition = marsRover.moves(position, commands);
+
+        //then
+        assertThat(finalPosition).isEqualTo("0,0,S");
+    }
+
 
 
 

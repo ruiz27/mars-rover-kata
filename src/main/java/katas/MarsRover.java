@@ -4,6 +4,14 @@ package katas;
 
 public class MarsRover {
 
+    private String map;
+
+    public MarsRover() {
+    }
+
+    public MarsRover(String map) {
+        this.map = map;
+    }
 
     public String moves(String position, String commands) {
         char[] listCommands = commands.toCharArray();
