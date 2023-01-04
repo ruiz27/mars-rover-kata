@@ -14,7 +14,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void test_movesForward(){
+    void movesForward(){
         //given
         String position = "0,0,N";
         String commands = "f";
@@ -27,7 +27,7 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,1,N");
     }
     @Test
-    void test_movesBackward(){
+    void movesBackward(){
         //given
         String position = "0,0,N";
         String commands = "b";
@@ -40,7 +40,7 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,-1,N");
     }
     @Test
-    void test_movesLeft(){
+    void movesLeft(){
         //given
         String position = "0,0,N";
         String commands = "l";
@@ -53,7 +53,7 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,0,W");
     }
     @Test
-    void test_movesRight(){
+    void movesRight(){
         //given
         String position = "0,0,N";
         String commands = "r";
@@ -66,7 +66,7 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,0,E");
     }
     @Test
-    void test_movesLeftAndForward(){
+    void movesLeftAndForward(){
         //given
         String position = "1,2,N";
         String commands = "lf";
@@ -79,7 +79,7 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,2,W");
     }
     @Test
-    void test_movesLeftAndLeft(){
+    void movesLeftAndLeft(){
         //given
         String position = "0,0,N";
         String commands = "ll";
