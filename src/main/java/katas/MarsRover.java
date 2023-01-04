@@ -24,7 +24,7 @@ public class MarsRover {
                     dir = moveLeft(dir);
                     break;
                 case 'r':
-                    dir = moveRight("E");
+                    dir = moveRight(dir);
                     break;
             }
         }
@@ -33,9 +33,7 @@ public class MarsRover {
     }
 
     private String moveRight(String e) {
-        String dir;
-        dir = e;
-        return dir;
+        return "E";
     }
 
     private Point moveForward(String dir, int x, int y){
