@@ -20,6 +20,8 @@ Link: https://kata-log.rocks/mars-rover-kata
 
 # Solution
 
+- Patterns: command and state
+
 ## Assumptions
 
 - The planet is plane

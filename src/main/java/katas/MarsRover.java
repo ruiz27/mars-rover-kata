@@ -12,17 +12,17 @@ public class MarsRover {
         int y = Integer.parseInt(position.split(",")[1]);
         String dir = position.split(",")[2];
         Point point = new Point(x,y);
-        for (int i = 0; i < listCommands.length; i++) {
-            if(listCommands[i]=='f'){
-                point = this.moveForward(dir,x,y);
+        for (char listCommand : listCommands) {
+            if (listCommand == 'f') {
+                point = this.moveForward(dir, x, y);
             }
-            if(listCommands[i]=='b'){
-                point = this.moveBackward(dir,x,y);
+            if (listCommand == 'b') {
+                point = this.moveBackward(dir, x, y);
             }
-            if(listCommands[i]=='l'){
+            if (listCommand == 'l') {
                 dir = "W";
             }
-            if(listCommands[i]=='r'){
+            if (listCommand == 'r') {
                 dir = "E";
             }
         }
