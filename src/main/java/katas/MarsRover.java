@@ -6,9 +6,6 @@ public class MarsRover {
 
     private String map;
 
-    public MarsRover() {
-    }
-
     public MarsRover(String map) {
         this.map = map;
     }
@@ -16,17 +13,16 @@ public class MarsRover {
     public String moves(String position, String commands) {
         char[] listCommands = commands.toCharArray();
 
-        int x = Integer.parseInt(position.split(",")[0]);
-        int y = Integer.parseInt(position.split(",")[1]);
         String dir = position.split(",")[2];
-        Point point = new Point(x,y);
+        Point point = getInitialPoint(position);
+
         for (char listCommand : listCommands) {
             switch (listCommand) {
                 case 'f':
-                    point = this.moveForward(dir, x, y);
+                    point = this.moveForward(dir, point.getX(), point.getY());
                     break;
                 case 'b':
-                    point = this.moveBackward(dir, x, y);
+                    point = this.moveBackward(dir, point.getX(), point.getY());
                     break;
                 case 'l':
                     dir = moveLeft(dir);
@@ -38,6 +34,12 @@ public class MarsRover {
         }
 
         return point.getX()+","+ point.getY()+","+dir;
+    }
+
+    private Point getInitialPoint(String position){
+        int x = Integer.parseInt(position.split(",")[0]);
+        int y = Integer.parseInt(position.split(",")[1]);
+        return new Point(x,y);
     }
 
     private String moveRight(String e) {

@@ -8,9 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MarsRoverTest {
 
+    private MarsRover marsRover;
+
     @BeforeEach
     void setUp() {
-
+        marsRover = new MarsRover("55");
     }
 
     @Test
@@ -20,7 +22,6 @@ class MarsRoverTest {
         String commands = "f";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -33,7 +34,6 @@ class MarsRoverTest {
         String commands = "b";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -46,7 +46,6 @@ class MarsRoverTest {
         String commands = "l";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -59,7 +58,6 @@ class MarsRoverTest {
         String commands = "r";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -72,7 +70,6 @@ class MarsRoverTest {
         String commands = "lf";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -85,7 +82,6 @@ class MarsRoverTest {
         String commands = "ll";
 
         //when
-        MarsRover marsRover = new MarsRover();
         String finalPosition = marsRover.moves(position, commands);
 
         //then
@@ -98,7 +94,6 @@ class MarsRoverTest {
         String commands = "ll";
 
         //when
-        MarsRover marsRover = new MarsRover("55");
         String finalPosition = marsRover.moves(position, commands);
 
         //then
