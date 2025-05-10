@@ -72,6 +72,19 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo(direction);
     }
 
+    @Test
+    void givenStartPointAndCommandBackwardWhenMoveThenReturnMovedPosition() {
+        // given
+        Integer[] startingPoint = new Integer[]{0, 0};
+        Integer[] direction = new Integer[]{0,-1,0,0};
+        marsRover = new MarsRover(startingPoint, direction);
+        String[] commands = new String[]{"b"};
 
+        //when
+        Integer[] finalPosition = marsRover.move(commands);
+
+        //then
+        assertThat(finalPosition).isEqualTo(direction);
+    }
 
 }
