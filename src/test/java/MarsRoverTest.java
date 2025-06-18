@@ -16,7 +16,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void movesForward(){
+    void movesForward() {
         //given
         String position = "0,0,N";
         String commands = "f";
@@ -27,8 +27,9 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,1,N");
     }
+
     @Test
-    void movesBackward(){
+    void movesBackward() {
         //given
         String position = "0,0,N";
         String commands = "b";
@@ -39,8 +40,9 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,-1,N");
     }
+
     @Test
-    void movesLeft(){
+    void movesLeft() {
         //given
         String position = "0,0,N";
         String commands = "l";
@@ -51,8 +53,9 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,0,W");
     }
+
     @Test
-    void movesRight(){
+    void movesRight() {
         //given
         String position = "0,0,N";
         String commands = "r";
@@ -63,8 +66,9 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,0,E");
     }
+
     @Test
-    void movesLeftAndForward(){
+    void movesLeftAndForward() {
         //given
         String position = "1,2,N";
         String commands = "lf";
@@ -75,20 +79,9 @@ class MarsRoverTest {
         //then
         assertThat(finalPosition).isEqualTo("0,2,W");
     }
-    @Test
-    void movesLeftAndLeft(){
-        //given
-        String position = "0,0,N";
-        String commands = "ll";
 
-        //when
-        String finalPosition = marsRover.moves(position, commands);
-
-        //then
-        assertThat(finalPosition).isEqualTo("0,0,S");
-    }
     @Test
-    void givenInitializeMapWhenMoveLeftThenResultEastDirection(){
+    void movesLeftAndLeft() {
         //given
         String position = "0,0,N";
         String commands = "ll";
@@ -100,10 +93,29 @@ class MarsRoverTest {
         assertThat(finalPosition).isEqualTo("0,0,S");
     }
 
+    @Test
+    void givenInitializeMapWhenMoveLeftThenResultEastDirection() {
+        //given
+        String position = "0,0,N";
+        String commands = "ll";
 
+        //when
+        String finalPosition = marsRover.moves(position, commands);
 
+        //then
+        assertThat(finalPosition).isEqualTo("0,0,S");
+    }
 
+    @Test
+    void givenNullInputs_whenMoves_thenThrowsException() {
+        // Espera que se lance NullPointerException si position es null
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> marsRover.moves(null, "f"))
+                .isInstanceOf(NullPointerException.class);
 
+        // Espera que se lance NullPointerException si commands es null
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> marsRover.moves("0,0,N", null))
+                .isInstanceOf(NullPointerException.class);
+    }
 
 
 }
